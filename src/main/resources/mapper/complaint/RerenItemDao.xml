@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.complaint.dao.RerenItemDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.complaint.entity.RerenItemEntity" id="rerenItemMap">
+        <result property="id" column="id"/>
+        <result property="itemNo" column="item_no"/>
+        <result property="itemName" column="item_name"/>
+        <result property="specification" column="specification"/>
+        <result property="unit" column="unit"/>
+        <result property="itemPlace" column="item_place"/>
+        <result property="itemManufacturer" column="item_manufacturer"/>
+        <result property="itemStock" column="item_stock"/>
+        <result property="remark" column="remark"/>
+        <result property="placeName" column="place_name"/>
+        <result property="goodsId" column="goods_id"/>
+        <result property="goodsStatus" column="goods_status"/>
+        <result property="quantityCome" column="quantity_come"/>
+        <result property="quantityOut" column="quantity_out"/>
+        <result property="quantityCount" column="quantity_count"/>
+        <result property="comeTime" column="come_time"/>
+        <result property="outTime" column="out_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="operatorName" column="operator_name"/>
+    </resultMap>
+
+
+</mapper>

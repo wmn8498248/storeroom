@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.warehouse.dao.MaterialsupplyquantityDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.warehouse.entity.MaterialsupplyquantityEntity" id="materialsupplyquantityMap">
+        <result property="id" column="ID"/>
+        <result property="equipmentcategory" column="EquipmentCategory"/>
+        <result property="equipmentname" column="EquipmentName"/>
+        <result property="quotacalculationstandard" column="QuotaCalculationStandard"/>
+        <result property="subdivisionname" column="SubdivisionName"/>
+        <result property="specificationsmodel" column="SpecificationsModel"/>
+        <result property="equipmentmanufacturer" column="EquipmentManufacturer"/>
+        <result property="quotaforsparepartscalculation" column="QuotaForSparePartsCalculation"/>
+        <result property="currentquantityofspareparts" column="CurrentQuantityOfSpareParts"/>
+        <result property="deficiencyquantity" column="DeficiencyQuantity"/>
+        <result property="materialunitprice" column="MaterialUnitPrice"/>
+        <result property="plannedpurchasequantity" column="PlannedPurchaseQuantity"/>
+        <result property="deficiencyamount" column="DeficiencyAmount"/>
+        <result property="urgencylevel" column="UrgencyLevel"/>
+        <result property="purchasebatch" column="PurchaseBatch"/>
+        <result property="arrivalprogress" column="ArrivalProgress"/>
+        <result property="remarks" column="Remarks"/>
+        <result property="warehouse" column="Warehouse"/>
+        <result property="updatedate" column="UpdateDate"/>
+        <result property="createtime" column="CreateTime"/>
+        <result property="operatorname" column="OperatorName"/>
+    </resultMap>
+
+
+</mapper>
