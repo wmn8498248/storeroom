@@ -26,6 +26,10 @@ public class MaterialsupplyquantityEntity implements Serializable {
 	@TableId
 	private Integer id;
 	/**
+	 * 设备区域
+	 */
+	private String equipmentarea;
+	/**
 	 * 设备种类
 	 */
 	private String equipmentcategory;

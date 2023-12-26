@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.warehouse.dao.EquipmentinventoryDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.warehouse.entity.EquipmentinventoryEntity" id="equipmentinventoryMap">
+        <result property="id" column="ID"/>
+        <result property="equipmentname" column="EquipmentName"/>
+        <result property="specificationsmodel" column="SpecificationsModel"/>
+        <result property="equipmentmanufacturer" column="EquipmentManufacturer"/>
+        <result property="currentquantityofspareparts" column="CurrentQuantityOfSpareParts"/>
+        <result property="storagelocation" column="StorageLocation"/>
+        <result property="equipmentcategory" column="EquipmentCategory"/>
+        <result property="materialdescription" column="MaterialDescription"/>
+        <result property="photopath" column="PhotoPath"/>
+        <result property="inoutoperation" column="InOutOperation"/>
+        <result property="updatedate" column="UpdateDate"/>
+    </resultMap>
+
+
+</mapper>

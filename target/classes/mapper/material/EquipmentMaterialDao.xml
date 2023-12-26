@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.material.dao.EquipmentMaterialDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.material.entity.EquipmentMaterialEntity" id="equipmentMaterialMap">
+        <result property="equipmentId" column="equipment_id"/>
+        <result property="deviceNumber" column="device_number"/>
+        <result property="deviceCategory" column="device_category"/>
+        <result property="deviceName" column="device_name"/>
+        <result property="subcategoryName" column="subcategory_name"/>
+        <result property="modelSpecification" column="model_specification"/>
+        <result property="warehousePerson" column="warehouse_person"/>
+        <result property="warehouseQuantity" column="warehouse_quantity"/>
+        <result property="currentStock" column="current_stock"/>
+        <result property="arrivalDate" column="arrival_date"/>
+        <result property="materialSource" column="material_source"/>
+        <result property="projectName" column="project_name"/>
+        <result property="supplier" column="supplier"/>
+        <result property="materialCode" column="material_code"/>
+        <result property="materialDescription" column="material_description"/>
+        <result property="totalAmount" column="total_amount"/>
+        <result property="signee" column="signee"/>
+        <result property="deviceType" column="device_type"/>
+        <result property="storageRoom" column="storage_room"/>
+        <result property="remarks" column="remarks"/>
+        <result property="operatorAccount" column="operator_account"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+        <result property="goodsAddr" column="goods_addr"/>
+        <result property="goodsPhoto" column="goods_photo"/>
+    </resultMap>
+
+
+</mapper>

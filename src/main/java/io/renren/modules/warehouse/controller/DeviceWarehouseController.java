@@ -1,6 +1,8 @@
 package io.renren.modules.warehouse.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -38,7 +40,13 @@ public class DeviceWarehouseController {
     @RequiresPermissions("complaint:devicewarehouse:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = deviceWarehouseService.queryPage(params);
+        return R.ok().put("page", page);
+    }
 
+    @RequestMapping("/key")
+    @RequiresPermissions("complaint:devicewarehouse:list")
+    public R key(@RequestParam Map<String, Object> params){
+        PageUtils page = deviceWarehouseService.queryPage(params);
         return R.ok().put("page", page);
     }
 
