@@ -1,4 +1,4 @@
-package io.renren.modules.material.entity;
+package io.renren.modules.materialRemove.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -13,11 +13,11 @@ import lombok.Data;
  * 
  * @author chenshun
  * @email sunlightcs@gmail.com
- * @date 2023-12-25 16:35:36
+ * @date 2023-12-27 13:41:46
  */
 @Data
-@TableName("equipment_material")
-public class EquipmentMaterialEntity implements Serializable {
+@TableName("equipment_material_remove")
+public class EquipmentMaterialRemoveEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -125,4 +125,21 @@ public class EquipmentMaterialEntity implements Serializable {
 	 * 单位
 	 */
 	private String goodsUnit;
+	/**
+	 * 出库后用图
+	 */
+	private String useTo;
+	/**
+	 * 领用人
+	 */
+	private String removeName;
+	/**
+	 * 领用数量
+	 */
+	private Integer removeNum;
+	/**
+	 * 仓库ID
+	 */
+	private Integer roomId;
+
 }

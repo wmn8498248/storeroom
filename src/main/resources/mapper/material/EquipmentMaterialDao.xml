@@ -30,6 +30,11 @@
         <result property="updatedAt" column="updated_at"/>
         <result property="goodsAddr" column="goods_addr"/>
         <result property="goodsPhoto" column="goods_photo"/>
+        <result property="goodsUnit" column="goods_unit"/>
+        <result property="useTo" column="use_to"/>
+        <result property="removeName" column="remove_name"/>
+        <result property="removeNum" column="remove_num"/>
+        <result property="roomId" column="room_id"/>
     </resultMap>
 
 

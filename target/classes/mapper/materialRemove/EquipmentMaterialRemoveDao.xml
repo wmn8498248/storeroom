@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="io.renren.modules.material.dao.EquipmentMaterialDao">
+<mapper namespace="io.renren.modules.materialRemove.dao.EquipmentMaterialRemoveDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="io.renren.modules.material.entity.EquipmentMaterialEntity" id="equipmentMaterialMap">
+    <resultMap type="io.renren.modules.materialRemove.entity.EquipmentMaterialRemoveEntity" id="equipmentMaterialRemoveMap">
         <result property="equipmentId" column="equipment_id"/>
         <result property="deviceNumber" column="device_number"/>
         <result property="deviceCategory" column="device_category"/>
@@ -31,10 +31,6 @@
         <result property="goodsAddr" column="goods_addr"/>
         <result property="goodsPhoto" column="goods_photo"/>
         <result property="goodsUnit" column="goods_unit"/>
-        <result property="useTo" column="use_to"/>
-        <result property="removeName" column="remove_name"/>
-        <result property="removeNum" column="remove_num"/>
-        <result property="roomId" column="room_id"/>
     </resultMap>
 
 

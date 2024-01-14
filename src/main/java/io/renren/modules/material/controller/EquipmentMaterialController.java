@@ -73,15 +73,19 @@ public class EquipmentMaterialController {
         MaterialsupplyquantityEntity materialsupplyquantity = materialsupplyquantityService.getById(deviceNumber);
 
 //        入库后的库存
-        Integer currentStock = equipmentMaterial.getCurrentStock();
+        Integer meterialCount =  materialsupplyquantity.getCurrentquantityofspareparts(); // 库存数量
+        Integer meterialAdd = equipmentMaterial.getWarehouseQuantity();
+//        Integer currentStock = equipmentMaterial.getCurrentStock();
+        Integer currentStock = meterialCount + meterialAdd;
         materialsupplyquantity.setCurrentquantityofspareparts(currentStock);
+
 //        缺额数量
         Integer quotaforsparepartscalculation = materialsupplyquantity.getQuotaforsparepartscalculation().intValue(); //定额数量
 
-        if (quotaforsparepartscalculation > currentStock) {
+        if (quotaforsparepartscalculation >= currentStock) {
             Integer scarcityQuantity = quotaforsparepartscalculation - currentStock; // 差额
-            materialsupplyquantity.setDeficiencyquantity(scarcityQuantity);
-            materialsupplyquantity.setPlannedpurchasequantity(scarcityQuantity);
+            materialsupplyquantity.setDeficiencyquantity(scarcityQuantity); // 稀缺数量
+            materialsupplyquantity.setPlannedpurchasequantity(scarcityQuantity); // 计划采购数量
             // 将 Integer 转换为 BigDecimal，然后相乘
             BigDecimal scarcityAmount = materialsupplyquantity.getMaterialunitprice().multiply(new BigDecimal(scarcityQuantity));
             materialsupplyquantity.setDeficiencyamount(scarcityAmount); // 稀缺金额
@@ -90,25 +94,36 @@ public class EquipmentMaterialController {
             materialsupplyquantity.setPlannedpurchasequantity(0);
             materialsupplyquantity.setDeficiencyamount(new BigDecimal(0));
         }
-        String warehouse = materialsupplyquantity.getWarehouse();
-        String storageRoom =  equipmentMaterial.getStorageRoom();
-        if(warehouse.isEmpty()){
 
+        String warehouse = materialsupplyquantity.getWarehouse();// 获取库房名称 a
+
+        String storageRoom = equipmentMaterial.getStorageRoom(); // 插入的库房成 a b
+
+        if (warehouse == null || warehouse.equals("")) {
+            warehouse = storageRoom;
+            materialsupplyquantity.setWarehouse(JSON.toJSONString(warehouse));
         } else {
-            //带有转义的那种字符串，不带转义的那种会报错
-//            String jsonStr = "{\"name\":\"zhangsan\",\"age\":\"123\"}";
-            // jsonStr <--> JSONObject
-            JSONObject jsonObject = JSON.parseObject(warehouse);
+            if(warehouse.contains(storageRoom)){
 
-            for (String key : jsonObject.keySet()) {
-                // 3. 遍历属性，并执行相应的操作
-                Object value = jsonObject.get(key);
-                // 在这里写下你需要执行的操作代码
-                System.out.println(key + ": " + value);
+            } else {
+                warehouse = storageRoom + "," + warehouse;
             }
-
-            String jsonObjectStr = JSON.toJSONString(jsonObject);
         }
+        materialsupplyquantity.setWarehouse(warehouse);
+
+//        if(warehouse.isEmpty()){
+//
+//        } else {
+//            JSONObject jsonObject = JSON.parseObject(warehouse);
+//            for (String key : jsonObject.keySet()) {
+//                // 3. 遍历属性，并执行相应的操作
+//                Object value = jsonObject.get(key);
+//                // 在这里写下你需要执行的操作代码
+//                System.out.println(key + ": " + value);
+//            }
+//
+//            String jsonObjectStr = JSON.toJSONString(jsonObject);
+//        }
 
 //        List<String> list = new ArrayList<String>() {{
 //            add(warehouse);

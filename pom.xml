@@ -8,6 +8,7 @@
 	<packaging>jar</packaging>
 	<description>renren-fast</description>
 
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -261,7 +262,12 @@
 			<artifactId>xbean-reflect</artifactId>
 			<version>3.7</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>

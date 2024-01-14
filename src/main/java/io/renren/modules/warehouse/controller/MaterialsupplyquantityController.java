@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -31,6 +32,26 @@ import java.util.Map;
 public class MaterialsupplyquantityController {
     @Autowired
     private MaterialsupplyquantityService materialsupplyquantityService;
+
+    /**
+     * 导入
+     */
+    @RequestMapping("/toimport")
+    @RequiresPermissions("complaint:materialsupplyquantity:save")
+    public R toimport(@RequestParam("file") MultipartFile file){
+        if (file.isEmpty()) {
+            return R.ok("请选择一个文件");
+        }
+        try {
+            // 保存文件到服务器
+            File serverFile = new File("/" + file.getOriginalFilename());
+            file.transferTo(serverFile);
+            return R.ok("图片上传成功");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return R.ok("图片上传失败");
+        }
+    }
 
     /**
      * 导入
